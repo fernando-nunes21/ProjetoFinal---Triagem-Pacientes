@@ -1,0 +1,10 @@
+ProjetoFinal/TriagemPacientes/BancoAplicação.java
+ ProjetoFinal.TriagemPacientes.BancoAplicação
+ProjetoFinal/TriagemPacientes/Acompanhante.java
+ ProjetoFinal.TriagemPacientes.Acompanhante
+ProjetoFinal/TriagemPacientes/Paciente.java
+ ProjetoFinal.TriagemPacientes.Paciente
+ProjetoFinal/TriagemPacientes/Pessoa.java
+ ProjetoFinal.TriagemPacientes.Pessoa
+ProjetoFinal/TriagemPacientes/Main.java
+ ProjetoFinal.TriagemPacientes.Main

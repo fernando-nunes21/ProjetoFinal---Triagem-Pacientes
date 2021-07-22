@@ -1,13 +1,14 @@
 package ProjetoFinal.TriagemPacientes;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Paciente extends Pessoa{
     private Integer cartaoSus;
-    private String[] comorbidades;
+    private ArrayList<String> comorbidades;
 
     public Paciente(String nome, Integer cpf, Date dataNascimento, 
-            Integer cartaoSus, String[] comorbidades) {
+            Integer cartaoSus, ArrayList<String> comorbidades) {
         this.nome = nome;
         this.cpf = cpf;
         this.dataNascimento = dataNascimento;
@@ -23,11 +24,11 @@ public class Paciente extends Pessoa{
         this.cartaoSus = cartaoSus;
     }
 
-    public String[] getComorbidades() {
+    public ArrayList<String> getComorbidades() {
         return comorbidades;
     }
 
-    public void setComorbidades(String[] comorbidades) {
+    public void setComorbidades(ArrayList<String> comorbidades) {
         this.comorbidades = comorbidades;
     }
 

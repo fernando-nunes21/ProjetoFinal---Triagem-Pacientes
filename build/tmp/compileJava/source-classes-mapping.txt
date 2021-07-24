@@ -1,10 +1,16 @@
-ProjetoFinal/TriagemPacientes/BancoAplicação.java
- ProjetoFinal.TriagemPacientes.BancoAplicação
+ProjetoFinal/TriagemPacientes/BancoAplicacao.java
+ ProjetoFinal.TriagemPacientes.BancoAplicacao
 ProjetoFinal/TriagemPacientes/Acompanhante.java
  ProjetoFinal.TriagemPacientes.Acompanhante
 ProjetoFinal/TriagemPacientes/Paciente.java
  ProjetoFinal.TriagemPacientes.Paciente
+ProjetoFinal/TriagemPacientes/EscortNotFound.java
+ ProjetoFinal.TriagemPacientes.EscortNotFound
+ProjetoFinal/TriagemPacientes/PacientNotFound.java
+ ProjetoFinal.TriagemPacientes.PacientNotFound
 ProjetoFinal/TriagemPacientes/Pessoa.java
  ProjetoFinal.TriagemPacientes.Pessoa
+ProjetoFinal/TriagemPacientes/ServicoCadastros.java
+ ProjetoFinal.TriagemPacientes.ServicoCadastros
 ProjetoFinal/TriagemPacientes/Main.java
  ProjetoFinal.TriagemPacientes.Main

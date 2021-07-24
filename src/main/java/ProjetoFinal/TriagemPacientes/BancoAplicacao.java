@@ -3,57 +3,47 @@ package ProjetoFinal.TriagemPacientes;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
 
 public class BancoAplicacao {
 
     private ArrayList<Paciente> pacientes = new ArrayList<>();
-    private ArrayList<Acompanhante> acompanhante = new ArrayList<>();
+    private ArrayList<Acompanhante> acompanhantes = new ArrayList<>();
 
-    public void cadastroPaciente() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Por favor, digite o nome do paciente:");
-        String nomePaciente = scanner.next();
-        System.out.println("Digite o CPF do paciente:");
-        Integer cpfPaciente = scanner.nextInt();
-        System.out.println("Digite a data de nascimento do paciente:");
-        String dataNasc = scanner.next();
-        DateFormat dataNascPaciente = DateFormat.getInstance();
-        try {
-            Date dataNascimentoPaciente = dataNascPaciente.parse(dataNasc);
-            System.out.println("Digite o numero do cartao sus do paciente:");
-            Integer cartaoSusPaciente = scanner.nextInt();
-            ArrayList<String> comorbidades = cadastrarComorbidades(scanner);
-            Paciente paciente = new Paciente(nomePaciente,
-                    cpfPaciente,
-                    dataNascimentoPaciente,
-                    cartaoSusPaciente,
-                    comorbidades);
-            pacientes.add(paciente);
-        } catch (ParseException error) {
-            System.out.println(error.getMessage());
-        } catch (IllegalArgumentException error) {
-            System.out.println(error.getMessage());
-        }
-
+    public void setPaciente(Paciente paciente) {
+        this.pacientes.add(paciente);
     }
 
-    private ArrayList<String> cadastrarComorbidades(Scanner scanner) {
-        Integer controleCadastro = 0;
-        ArrayList<String> comorbidades = new ArrayList<>();
-        System.out.println(
-                "Deseja cadastrar comorbidades do paciente? 1 - Sim, 0 - Não");
-        controleCadastro = scanner.nextInt();
-        while (controleCadastro == 1) {
-            System.out.println("Descreva a comorbidade: ");
-            String descricaoComorbidade = scanner.next();
-            comorbidades.add(descricaoComorbidade);
-            System.out.println(
-                    "Deseja continuar cadastrando comorbidades do paciente? "
-                    + "1 - Sim, 0 - Não");
-            controleCadastro = scanner.nextInt();
+    public Paciente getPaciente(Integer CPF) throws PacientNotFound {
+        for (Paciente paciente : pacientes) {
+            if (paciente.getCpf() == CPF) {
+                return paciente;
+            }
         }
-        return comorbidades;
+        throw new PacientNotFound("Não encontrado paciente com CPF inserido");
+    }
+
+    public void setAcompanhate(Acompanhante acompanhante) {
+        this.acompanhantes.add(acompanhante);
+    }
+
+    public Acompanhante getAcompanhante(Integer CPF) throws EscortNotFound {
+        for (Acompanhante acompanhante : acompanhantes) {
+            if (acompanhante.getCpf() == CPF) {
+                return acompanhante;
+            }
+        }
+        throw new EscortNotFound("Não encontrado acompanhante com este CPF");
+    }
+
+    public Acompanhante getAcompanhante(Paciente paciente) throws EscortNotFound {
+        for (Acompanhante acompanhante : acompanhantes) {
+            if (acompanhante.getPacienteAssociado().getCpf() == paciente.getCpf()) {
+                return acompanhante;
+            }
+        }
+        throw new EscortNotFound("Não encontrado acompanhante com este CPF");
     }
 }

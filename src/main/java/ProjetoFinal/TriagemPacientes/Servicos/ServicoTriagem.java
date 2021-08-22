@@ -1,13 +1,16 @@
-package ProjetoFinal.TriagemPacientes;
+package ProjetoFinal.TriagemPacientes.Servicos;
+
+import ProjetoFinal.TriagemPacientes.Erros.RespostaIncorreta;
+import ProjetoFinal.TriagemPacientes.Pessoas.Paciente;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class ServicoTriagem {
+public class ServicoTriagem implements TriagemInterface{
     
     private ArrayList<String> sintomasCovid = new ArrayList<>();
     
-    public void realizarTriagem(Paciente paciente){
+    public void realizarTriagem(Paciente paciente) throws RespostaIncorreta {
         ArrayList<String> respostas = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Area de Triagem");
@@ -27,10 +30,14 @@ public class ServicoTriagem {
         
     }   
     
-    private void validarRespostas(ArrayList<String> respostas){
+    private void validarRespostas(ArrayList<String> respostas) throws RespostaIncorreta {
         for(String resposta : respostas){
             if(resposta.equals("sim")){
                 sintomasCovid.add(resposta);
+            }
+            else if(!resposta.equals("nao")){
+                throw new RespostaIncorreta("Conteudo da resposta nao corresponde a sim ou nao. ->" +
+                        " Mensagem : "+resposta);
             }
         }
     }
